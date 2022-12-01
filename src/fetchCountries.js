@@ -5,7 +5,8 @@ const filtres = 'name,capital,population,flags,languages';
 
 export function fetchCountries(name) {   
     return fetch(`${BASE_URL}${name}?fields=${filtres}`).then(response => {    
-    if (!response.ok) {
+        if (!response.ok) {
+            
         throw new Error(Notiflix.Notify.failure('Oops, there is no country with that name'))
     }
     return response.json()

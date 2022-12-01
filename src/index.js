@@ -12,7 +12,11 @@ input.addEventListener('input', debounce(onSearchCountry, DEBOUNCE_DELAY));
 function onSearchCountry(e) {     
     const nameOfCountry = e.target.value.trim();
     if(nameOfCountry){
-    fetchCountries(nameOfCountry).then(createMarkup).catch(error => console.log(error))
+        fetchCountries(nameOfCountry).then(createMarkup).catch(error => {
+            list.innerHTML = '';
+            info.innerHTML = '';
+            console.log(error)
+        })
 }
 }
 
